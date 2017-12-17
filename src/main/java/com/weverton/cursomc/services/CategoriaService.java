@@ -5,6 +5,8 @@ import org.springframework.stereotype.Service;
 
 import com.weverton.cursomc.domains.Categoria;
 import com.weverton.cursomc.repositories.CategoriaRepository;
+import com.weverton.cursomc.services.exception.ObjectNotFoundException;
+
 
 /**
  * @author weverton
@@ -23,6 +25,11 @@ public class CategoriaService {
 		
 		Categoria obj = categoriaRep.findOne(id);
 		
+		if(obj == null) {
+			
+			throw new ObjectNotFoundException("Objeto não encontrado. ID: " + id +
+					", Tipo: " + Categoria.class.getName());
+		}
 		return obj;
 	}
 }
