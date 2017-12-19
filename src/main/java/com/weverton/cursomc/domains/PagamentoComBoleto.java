@@ -1,4 +1,3 @@
-
 package com.weverton.cursomc.domains;
 
 import java.util.Date;
@@ -11,19 +10,18 @@ import com.weverton.cursomc.enums.EstadoPagamento;
 public class PagamentoComBoleto extends Pagamento {
 
 	private static final long serialVersionUID = 1L;
+	private Date dataVencimento;
+	private Date dataPagamento;
 
-	private Date	dataVencimento;
-
-	private Date	dataPagamento;
-
+	
 	public PagamentoComBoleto() {
 
 	}
 
-	public PagamentoComBoleto(Integer id, EstadoPagamento estado, Date dataVencimento,
-	          Date dataPagamento) {
+	public PagamentoComBoleto(final Integer id,final  EstadoPagamento estado,final  Pedido pedido,final  Date dataVencimento,
+			final Date dataPagamento) {
 
-		super(id, estado);
+		super(id, estado, pedido);
 		this.dataVencimento = dataVencimento;
 		this.dataPagamento = dataPagamento;
 	}
